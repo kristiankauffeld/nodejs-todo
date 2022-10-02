@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+ul {
+  padding: 0;
+}
+
+ul li {
+  display: flex;
+}
+
+#create-todo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

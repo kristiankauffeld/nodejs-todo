@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script src="scripts/script.js" defer></script>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+    <% if (numberOfTasks === 0) { %>
+    <p>no tasks yet...</p>
+    <% } else { %>
+    <ul>
+      <% for (const task of tasks) { %>
+      <form action="delete-todo" method="POST">
+        <li><%= task%></li>
+        <input type="hidden" value="<%= task %> " name="<%= task %> ">
+        <button>delete</button>
+      </form>
+      <% } %>
+    </ul>
+    <% } %>
+
+    <h2>Add a Todo</h2>
+    <form action="create-todo" method="POST" id="create-todo">
+      <input type="text" name="task" placeholder="add tasks..." required />
+      <br />
+      <button>submit</button>
+    </form>
+  </body>
+</html>
