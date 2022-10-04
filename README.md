@@ -1,2 +1,4 @@
 # nodejs-todo
-nodejs/express todo app using JSON as a "database"
+simple todo app using nodejs/express, EJS, and JSON as a "database"
+
+![screendump](screendump.png)
