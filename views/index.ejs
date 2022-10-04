@@ -15,9 +15,11 @@
     <% } else { %>
     <ul>
       <% for (const task of tasks) { %>
-      <form action="delete-todo" method="POST">
-        <li><%= task%></li>
-        <input type="hidden" value="<%= task %> " name="<%= task %> ">
+      <form action="/delete-todo" method="POST" class="todo-item">
+        <li><%= task%>
+          <input type="checkbox" class="check-box" id="check-box">
+        </li>
+        <input type="hidden" name="completedTask" value="<%=task%>" />
         <button>delete</button>
       </form>
       <% } %>

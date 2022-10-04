@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const express = require('express');
+const { Console } = require('console');
 const app = express();
 const port = 3000;
 
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
   const fileData = fs.readFileSync(filePath);
 
   const storedTasks = JSON.parse(fileData);
+
   res.render('index', {
     numberOfTasks: storedTasks.length,
     tasks: storedTasks,
@@ -28,7 +30,7 @@ app.post('/create-todo', (req, res) => {
   const fileData = fs.readFileSync(filePath);
 
   const storedTasks = JSON.parse(fileData);
-  console.log(task)
+  console.log(task);
 
   storedTasks.push(task);
   fs.writeFileSync(filePath, JSON.stringify(storedTasks, null, 2));
@@ -37,14 +39,25 @@ app.post('/create-todo', (req, res) => {
 });
 
 app.post('/delete-todo', (req, res) => {
-  const task = req.body;
+  const completedTask = req.body.completedTask;
 
   const filePath = path.join(__dirname, 'data', 'tasks.json');
   const fileData = fs.readFileSync(filePath);
 
   const storedTasks = JSON.parse(fileData);
 
-  console.log(task)
+  console.dir(completedTask);
+
+  //code for deleting completed tasks
+  for (const task of storedTasks) {
+    if (completedTask === task) {
+      console.log('deleted task!');
+      storedTasks.splice(task, 1);
+    }
+  }
+
+  //update the JSON file after deleting completed task
+  fs.writeFileSync(filePath, JSON.stringify(storedTasks, null, 2));
 
   res.redirect('/');
 });
