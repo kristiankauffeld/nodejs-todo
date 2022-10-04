@@ -1,5 +1,8 @@
 # nodejs-todo
-nodejs/express todo app using JSON as a "database"
+
+simple todo app using nodejs/express, EJS, and JSON as a "database"
+
+![screendump](screendump.png)
 
 ### Getting Started
 
@@ -7,7 +10,7 @@ nodejs/express todo app using JSON as a "database"
 
    ```sh
    git clone https://github.com/kristiankauffeld/nodejs-todo
-   cd jellyfin-web
+   cd nodejs-todo
    ```
 
 2. Install dependencies in the project directory.
