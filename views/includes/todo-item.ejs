@@ -1,0 +1,8 @@
+<form action="/delete-todo" method="POST">
+  <li>
+    <%= task%>
+    <input type="checkbox" />
+  </li>
+  <input type="hidden" name="completedTask" value="<%=task%>" />
+  <button>delete</button>
+</form>
